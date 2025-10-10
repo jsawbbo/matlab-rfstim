@@ -16,8 +16,9 @@ classdef bboteensy < rfstim.sync.none
     end
 
     methods
-        function obj = bboteensy()
+        function obj = bboteensy(parentapp)
             %TEENSY Construct an instance of this class
+            obj@rfstim.sync.none(parentapp);
         end
 
         function res = open(obj,port)
@@ -50,7 +51,7 @@ classdef bboteensy < rfstim.sync.none
             end
 
             % otherwise configure 
-            ui = rfstim.sync.ui.bboteensy(obj);
+            ui = rfstim.sync.ui.bboteensy(obj,obj.Parent.UIFigure.Position);
             ui.wait();
 
             if ~ui.Result
@@ -63,7 +64,7 @@ classdef bboteensy < rfstim.sync.none
         end
 
         function res = good(obj)
-            res = ishandle(obj.Handle);
+            res = ~isempty(obj.Handle) && ishandle(obj.Handle);
         end
         
         function on(obj)

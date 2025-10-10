@@ -9,17 +9,22 @@ classdef none < handle
         end
     end
     
+    properties(Access=protected,Hidden)
+        Parent
+    end
+
     methods
-        function obj = none()
+        function obj = none(parentapp) %#ok<*INUSD,*MANU>
+            obj.Parent = parentapp;
         end
 
-        function init(obj,pconfig) %#ok<*INUSD,*MANU>
+        function init(obj,pconfig) 
             %INIT       Initialize module.
         end
 
         function res = good(obj)
             %GOOD       Check if module is working.
-            res = true;
+            res = false;
         end
 
         function on(obj)
