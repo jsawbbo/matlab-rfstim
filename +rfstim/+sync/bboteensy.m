@@ -9,9 +9,9 @@ classdef bboteensy < rfstim.sync.none
     end
     
     methods(Static)
-        function [label,prio] = name()
+        function [label,order] = name()
             label = 'Custom Teensy (BBO)';
-            prio = 0;
+            order = 0;
         end
     end
 

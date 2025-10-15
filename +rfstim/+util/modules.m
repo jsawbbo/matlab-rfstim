@@ -1,4 +1,4 @@
-function list = modules(path)
+function list = modules(path,subdir)
     %RFSTIM.UTIL.MODULES                List modules in given directory.
     %
     %
@@ -6,7 +6,7 @@ function list = modules(path)
     list = struct(...
         'module',{},...         % M-file name
         'name',{}, ...          % module label
-        'priority',{});         % sorting priority
+        'order',{});         % sorting order
 
     % list files
     files = dir(path);
@@ -14,12 +14,12 @@ function list = modules(path)
         if ~files(i).isdir
             [~,module,~] = fileparts(files(i).name);
             try
-                [name,priority] = rfstim.sync.(module).name();
+                [name,order] = rfstim.(subdir).(module).name();
 
                 if isempty(list) || ~strcmp({list.module}, module)
                     list(end+1).module = module; %#ok<AGROW>
                     list(end).name = name;
-                    list(end).priority = priority;
+                    list(end).order = order;
                 end
             catch
             end
@@ -28,7 +28,7 @@ function list = modules(path)
 
     % sort
     tmp = struct2table(list);
-    tmp = sortrows(tmp, {'priority','name'});
+    tmp = sortrows(tmp, {'order','name'});
 
     list = table2struct(tmp);
 end
