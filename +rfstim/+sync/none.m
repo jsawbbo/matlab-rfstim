@@ -18,8 +18,8 @@ classdef none < handle
             obj.Parent = parentapp;
         end
 
-        function init(obj,pconfig) 
-            %INIT       Initialize module.
+        function startup(obj,pconfig) 
+            %STARTUP    Initialize module.
         end
 
         function res = good(obj)

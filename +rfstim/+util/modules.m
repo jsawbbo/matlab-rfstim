@@ -16,7 +16,7 @@ function list = modules(path,subdir)
             try
                 [name,order] = rfstim.(subdir).(module).name();
 
-                if isempty(list) || ~strcmp({list.module}, module)
+                if isempty(list) || all(~strcmp({list.module}, module))
                     list(end+1).module = module; %#ok<AGROW>
                     list(end).name = name;
                     list(end).order = order;
