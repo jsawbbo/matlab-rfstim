@@ -22,9 +22,8 @@ classdef none < handle
         end
 
         function startup(obj) 
-            %STARTUP    Initialize module.
-
-            obj.Component = rfstim.stimulus.comp.none(obj.Parent.StimulusPanel);
+            %STARTUP    Initialize GUI.
+            obj.Component = rfstim.stimulus.comp.none(obj.Parent.ModulePanel);
         end
     end
 end

@@ -21,8 +21,8 @@ function list = modules(path,subdir)
                     list(end).name = name;
                     list(end).order = order;
                 end
-            catch me
-                disp(me)
+            catch 
+                % not a module
             end
         end
     end

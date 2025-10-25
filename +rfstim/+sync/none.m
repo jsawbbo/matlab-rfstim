@@ -2,9 +2,9 @@ classdef none < handle
     %RFSTIM.SYNC.NONE     Dummy module.
     
     methods(Static)
-        function [label,order] = name()
+        function [text,order] = label()
             %NAME   Name and sorting priority.
-            label = '(none)';
+            text = '(none)';
             order = -Inf;
         end
     end

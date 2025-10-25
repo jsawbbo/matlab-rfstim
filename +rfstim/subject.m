@@ -5,9 +5,9 @@ classdef subject < handle
     %   position with respect to the screen, etc.
     
     properties
-        Name
-        Eye = struct(...
-            FocalLength = [])
+        Name                        % Subject name (such as 'Human').
+        Eye = struct(...            % Eye properties.
+            FocalLength = [])       % Focal length of the eye
         Source
     end
 

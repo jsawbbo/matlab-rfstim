@@ -1,5 +1,5 @@
 classdef base < handle
-    %BASE Summary of this class goes here
+    %RFSTIM.STIMULUS.BASE       Base class for stimulus modules.
     %   Detailed explanation goes here
     
     methods

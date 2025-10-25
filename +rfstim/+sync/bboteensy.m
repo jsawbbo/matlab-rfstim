@@ -9,8 +9,8 @@ classdef bboteensy < rfstim.sync.none
     end
     
     methods(Static)
-        function [label,order] = name()
-            label = 'Custom Teensy (BBO)';
+        function [text,order] = label()
+            text = 'Custom Teensy (BBO)';
             order = 0;
         end
     end
