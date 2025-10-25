@@ -1,4 +1,4 @@
-classdef subject
+classdef subject < handle
     %RFSTIM.SUBJECT     Subject info.
     %
     %   Details of subject (animal), such as focal length of the eye,
@@ -79,7 +79,7 @@ classdef subject
                 name string
             end
 
-            [~,subjects] = rfstim.display.find();
+            [~,subjects] = rfstim.subject.find();
             idx = find(strcmp({subjects.name}, name));
             if isempty(idx)
                 error(['Subject ''' char(name) ''' is not known.'])
