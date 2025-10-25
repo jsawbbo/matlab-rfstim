@@ -39,8 +39,8 @@ classdef bboteensy < rfstim.sync.none
             obj.Handle = [];
         end
 
-        function startup(obj,pconfig)
-            obj.Config = appconfig(pconfig, 'sync.bboteensy');
+        function startup(obj)
+            obj.Config = appconfig(obj.Parent.Config, 'sync.bboteensy');
 
             % open port, if configure and possible
             port = obj.Config.get('port',[]);

@@ -18,7 +18,7 @@ classdef none < handle
             obj.Parent = parentapp;
         end
 
-        function startup(obj,pconfig) 
+        function startup(obj) 
             %STARTUP    Initialize module.
         end
 
