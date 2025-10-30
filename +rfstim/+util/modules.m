@@ -4,9 +4,9 @@ function list = modules(path,subdir)
     %
 
     list = struct(...
-        'module',{},...         % M-file name
-        'name',{}, ...          % module label
-        'order',{});         % sorting order
+        module={},...       % M-file name
+        label={}, ...       % module label
+        order={});          % sorting order
 
     % list files
     files = dir(path);
@@ -14,11 +14,11 @@ function list = modules(path,subdir)
         if ~files(i).isdir
             [~,module,~] = fileparts(files(i).name);
             try
-                [name,order] = rfstim.(subdir).(module).name();
+                [text,order] = rfstim.(subdir).(module).label();
 
                 if isempty(list) || all(~strcmp({list.module}, module))
                     list(end+1).module = module; %#ok<AGROW>
-                    list(end).name = name;
+                    list(end).label = text;
                     list(end).order = order;
                 end
             catch 
@@ -29,7 +29,7 @@ function list = modules(path,subdir)
 
     % sort
     tmp = struct2table(list);
-    tmp = sortrows(tmp, {'order','name'});
+    tmp = sortrows(tmp, {'order','label'});
 
     list = table2struct(tmp);
 end
