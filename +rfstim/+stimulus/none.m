@@ -1,4 +1,4 @@
-classdef none < handle
+classdef none < rfstim.stimulus.base
     %RFSTIM.STIMULUS.NONE     Dummy module.
     
     methods(Static)
