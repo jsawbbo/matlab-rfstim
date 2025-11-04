@@ -6,6 +6,7 @@ classdef subject < handle
     
     properties
         Name                        % Subject name (such as 'Human').
+        Tag = []                    % Subject tag (e.g. "M20251101-abc").
         Eye = struct(...            % Eye properties.
             FocalLength = [])       % Focal length of the eye
         Source
