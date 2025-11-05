@@ -38,6 +38,17 @@ classdef base < handle
             end
             obj.Parent.enableRun(value);
         end
+
+        function status(obj,fmt,varargin)
+            try 
+                if nargin == 1
+                    obj.Parent.status();
+                else
+                    obj.Parent.status(fmt,varargin{:});
+                end
+            catch
+            end
+        end
     end
 
     methods

@@ -8,6 +8,12 @@ function list = modules(path,subdir)
         label={}, ...       % module label
         order={});          % sorting order
 
+    % subdir?
+    if nargin == 1
+        [~,subdir,~] = fileparts(path);
+        subdir = regexprep(subdir, '^[+@]', '');
+    end
+
     % list files
     files = dir(path);
     for i = 1:numel(files)
