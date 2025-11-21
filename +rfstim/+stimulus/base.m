@@ -59,9 +59,9 @@ classdef base < handle
 
         function save(obj,filename,varargin)
             %save       Save this object.
-            Stimulus = obj;
-            Stimulus.clearFields({"Parent","Component","Config"});
-            save(filename,'Stimulus',varargin{:});
+            RFstim = copy(obj);
+            RFstim.clearFields({"Parent","Component","Config"});
+            save(filename,'RFstim',varargin{:});
         end
 
         function startup(obj) %#ok<*MANU>
